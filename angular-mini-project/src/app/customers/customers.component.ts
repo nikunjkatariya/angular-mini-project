@@ -12,7 +12,7 @@ export class CustomersComponent implements OnInit {
 
 
   ngOnInit(): void {
-    if(this.service.status){
+    if(this.service.isLoggedIn){
       this.service.getCustomerList().subscribe(data=>{
         console.log(data);
         this.showCustomers(data);

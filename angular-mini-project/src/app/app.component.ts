@@ -11,13 +11,12 @@ export class AppComponent {
   title = 'angular-mini-project';
   logoimg = "https://angular.io/assets/images/logos/angular/logo-nav@2x.png";
 
-  constructor(private service:CrudDataService) { }
-
+  constructor(public service:CrudDataService) { }
   ngOnInit() {
   }
 
   logout(){
-    this.service.status=false;
-    window.location.reload();
+    this.service.logout();
+    // window.location.reload();
   }
 }

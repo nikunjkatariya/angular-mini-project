@@ -11,7 +11,7 @@ export class BuyersComponent implements OnInit {
   constructor(private service:CrudDataService) { }
 
   ngOnInit(): void {
-    if(this.service.status){
+    if(this.service.isLoggedIn){
       this.service.getBuyerList().subscribe(data=>{
         console.log(data);
         this.showBuyer(data);

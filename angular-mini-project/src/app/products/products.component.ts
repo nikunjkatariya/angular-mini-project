@@ -11,7 +11,7 @@ export class ProductsComponent implements OnInit {
   constructor(private service:CrudDataService) { }
 
   ngOnInit(): void {
-    if(this.service.status){
+    if(this.service.isLoggedIn){
       this.service.getProductList().subscribe(data=>{
         console.log(data);
         this.showProducts(data);

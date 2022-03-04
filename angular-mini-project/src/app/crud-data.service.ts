@@ -1,14 +1,30 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { delay, Observable, of, tap } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CrudDataService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,private router:Router) { }
 
-  status=false;
+  isLoggedIn = false;
+
+  redirectUrl : string | null = null ;
+
+  login():Observable<boolean>{
+    this.isLoggedIn=true;
+    return of(true).pipe(
+      delay(1000)
+    );
+  }
+
+  logout(){
+    this.isLoggedIn=false;
+    this.router.navigate(['/','login']);
+  }
 
   //Login
   getLoginList(){
